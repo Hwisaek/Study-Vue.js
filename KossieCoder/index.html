@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뷰 기초 익히기</title>
+    <style>
+      .red {
+        color: red;
+      }
+      .font-bold {
+        font-weight: bold;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- <button @click="changeText">Click</button>
+      {{name}}
+      <hr /> -->
+      <kossie-button></kossie-button>
+    </div>
+
+    <hr />
+    <hr />
+
+    <div id="app-1">
+      <!-- <button @click="changeText">Click</button>
+      {{name}}
+      <hr /> -->
+      <kossie-button></kossie-button>
+    </div>
+
+    <script>
+      // Vue.component("hello-world", {
+      //   template: "<div>helloworld</div>",
+      // });
+
+      // Vue.component("kossie-button", {
+      //   template: `
+      //     <div>
+      //       <hello-world></hello-world>
+      //       <button @click="changeText">Click</button>
+      //       {{name}}
+      //     </div>
+      //   `,
+      //   data() {
+      //     return {
+      //       name: "hwisaek",
+      //     };
+      //   },
+      //   methods: {
+      //     changeText() {
+      //       this.name = "hwisaek updated";
+      //     },
+      //   },
+      // });
+
+      const HelloWorld = {
+        template: "<div>helloworld</div>",
+      };
+
+      const KossieButton = {
+        components: { "hello-world": HelloWorld },
+        template: `
+          <div>
+            <hello-world></hello-world>
+            <button @click="changeText">Click</button>
+            {{name}}
+          </div>
+        `,
+        data() {
+          return {
+            name: "hwisaek",
+          };
+        },
+        methods: {
+          changeText() {
+            this.name = "hwisaek updated";
+          },
+        },
+      };
+      const app = new Vue({
+        el: "#app",
+        components: {
+          "kossie-button": KossieButton,
+        },
+        // data: {
+        //   name: "hwisaek",
+        // },
+        // methods: {
+        //   changeText() {
+        //     this.name = "hwisaek updated";
+        //   },
+        // },
+        // computed: {},
+        // watch: {},
+      });
+
+      const app1 = new Vue({
+        el: "#app-1",
+        components: {
+          "kossie-button": KossieButton,
+        },
+        // data: {
+        //   name: "hwisaek",
+        // },
+        // methods: {
+        //   changeText() {
+        //     this.name = "hwisaek updated";
+        //   },
+        // },
+        // computed: {},
+        // watch: {},
+      });
+    </script>
+  </body>
+</html>
