@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue Router Sample</title>
   </head>
   <body>
@@ -19,24 +19,25 @@
     <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
     <script>
       // 3. Main. Login 컴포넌트 내용 정의
-      var Main = { template: '<div>main</div>' };
-      var Login = { template: '<div>login</div>' };
+      var Main = { template: "<div>main</div>" };
+      var Login = { template: "<div>login</div>" };
 
       // 4. 각 url에 해당하는 컴포넌트 등록
       var routes = [
-        { path: '/main', component: Main },
-        { path: '/login', component: Login }
+        { path: "/main", component: Main },
+        { path: "/login", component: Login },
       ];
 
       // 5. 뷰 라우터 정의
       var router = new VueRouter({
-        routes
+        mode: "history",
+        routes,
       });
 
       // 6. 뷰 라우터를 인스턴스에 등록
       var app = new Vue({
-        router
-      }).$mount('#app');
+        router,
+      }).$mount("#app");
     </script>
   </body>
 </html>
