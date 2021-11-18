@@ -23,6 +23,11 @@ export const store = new Vuex.Store({
     state: {
         todoItems: storage.fetch()
     },
+    getters: {
+        storedTodoItems(state) {
+            return state.todoItems;
+        }
+    },
     mutations: { // this.$store.commit(함수명, 인자1, 인자2, ....) 으로 호출
         addOneItem(state, todoItem) {
             const obj = { completed: false, item: todoItem };
@@ -43,4 +48,7 @@ export const store = new Vuex.Store({
             state.todoItems = [];
         },
     },
+    actions: { // 비동기 처리
+
+    }
 });
