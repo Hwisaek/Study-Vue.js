@@ -40,29 +40,18 @@
 export default {
   computed: {
     listItems() {
-      let result = [];
-      const name = this.$route.name;
-      if (name === "news") {
-        result = this.$store.state.news;
-      } else if (name === "ask") {
-        result = this.$store.state.asks;
-      } else if (name === "jobs") {
-        result = this.$store.state.jobs;
-      }
-      return result;
+      return this.$store.state.list;
+      // let result = [];
+      // const name = this.$route.name;
+      // if (name === "news") {
+      //   result = this.$store.state.news;
+      // } else if (name === "ask") {
+      //   result = this.$store.state.asks;
+      // } else if (name === "jobs") {
+      //   result = this.$store.state.jobs;
+      // }
+      // return result;
     },
-  },
-  created() {
-    // this.$store.dispatch("FETCH_NEWS");
-    // console.log(this.$route);
-    const name = this.$route.name;
-    if (name === "news") {
-      this.$store.dispatch("FETCH_NEWS");
-    } else if (name === "ask") {
-      this.$store.dispatch("FETCH_ASKS");
-    } else if (name === "jobs") {
-      this.$store.dispatch("FETCH_JOBS");
-    }
   },
 };
 </script>
