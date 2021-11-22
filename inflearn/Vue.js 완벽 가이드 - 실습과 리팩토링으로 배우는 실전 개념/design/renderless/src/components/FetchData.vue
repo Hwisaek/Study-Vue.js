@@ -1,22 +1,23 @@
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  props: ['url'],
+  props: ["url"],
   data() {
     return {
       response: null,
       loading: true,
-    }
+    };
   },
   created() {
-    axios.get(this.url)
-      .then(response => {
+    axios
+      .get(this.url)
+      .then((response) => {
         this.response = response.data;
         this.loading = false;
       })
-      .catch(error => {
-        alert('[ERROR] fetching the data', error);
+      .catch((error) => {
+        alert("[ERROR] fetching the data", error);
         console.log(error);
       });
   },
@@ -28,5 +29,5 @@ export default {
       loading: this.loading,
     });
   },
-}
+};
 </script>
