@@ -29,7 +29,7 @@ mongoose.Promise = global.Promise;
 // server setup
 let port;
 async function configServer() {
-  port = 3000 || (await detectPort(3000));
+  port = 8000 || (await detectPort(8000));
 }
 configServer();
 
