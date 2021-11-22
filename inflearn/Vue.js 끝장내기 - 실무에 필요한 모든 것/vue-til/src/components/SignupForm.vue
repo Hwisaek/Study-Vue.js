@@ -3,8 +3,8 @@
     <div class="form-wrapper form-wrapper-sm">
       <form @submit.prevent="submitForm" class="form">
         <div>
-          <label for="email">email: </label>
-          <input id="email" type="text" v-model="email" />
+          <label for="username">id: </label>
+          <input id="username" type="text" v-model="username" />
         </div>
         <div>
           <label for="password">pw: </label>
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       // form values
-      email: '',
+      username: '',
       password: '',
       nickname: '',
       // log
@@ -38,17 +38,17 @@ export default {
   methods: {
     async submitForm() {
       const userData = {
-        email: this.email,
+        username: this.username,
         password: this.password,
         nickname: this.nickname,
       };
       const { data } = await registerUser(userData);
-      console.log(data.token);
-      this.logMessage = `${data.token} 님이 가입되었습니다`;
+      console.log(data.username);
+      this.logMessage = `${data.username} 님이 가입되었습니다`;
       this.initForm();
     },
     initForm() {
-      this.email = '';
+      this.username = '';
       this.password = '';
       this.nickname = '';
     },

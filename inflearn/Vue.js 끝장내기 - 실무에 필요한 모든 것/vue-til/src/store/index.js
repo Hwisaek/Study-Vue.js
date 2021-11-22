@@ -5,19 +5,19 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    email: '',
+    username: '',
   },
   getters: {
     isLogin(state) {
-      return state.email !== '';
+      return state.username !== '';
     },
   },
   mutations: {
-    setEmail(state, email) {
-      state.email = email;
+    setUsername(state, username) {
+      state.username = username;
     },
-    clearEmail(state) {
-      state.email = '';
+    clearUsername(state) {
+      state.username = '';
     },
   },
 });
