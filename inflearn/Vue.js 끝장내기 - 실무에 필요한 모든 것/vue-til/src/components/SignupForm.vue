@@ -11,8 +11,8 @@
           <input id="password" type="text" v-model="password" />
         </div>
         <div>
-          <label for="name">name: </label>
-          <input id="name" type="text" v-model="name" />
+          <label for="nickname">nickname: </label>
+          <input id="nickname" type="text" v-model="nickname" />
         </div>
         <button type="submit" class="btn">회원 가입</button>
       </form>
@@ -30,7 +30,7 @@ export default {
       // form values
       email: '',
       password: '',
-      name: '',
+      nickname: '',
       // log
       logMessage: '',
     };
@@ -40,7 +40,7 @@ export default {
       const userData = {
         email: this.email,
         password: this.password,
-        name: this.name,
+        nickname: this.nickname,
       };
       const { data } = await registerUser(userData);
       console.log(data.token);
@@ -50,7 +50,7 @@ export default {
     initForm() {
       this.email = '';
       this.password = '';
-      this.name = '';
+      this.nickname = '';
     },
   },
 };

@@ -8,7 +8,7 @@ export default new Vuex.Store({
     email: '',
   },
   getters: {
-    isLogined(state) {
+    isLogin(state) {
       return state.email !== '';
     },
   },
