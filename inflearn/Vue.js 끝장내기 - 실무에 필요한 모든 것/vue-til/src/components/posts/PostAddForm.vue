@@ -5,23 +5,29 @@
       <form class="form" @submit.prevent="submitForm">
         <div>
           <label for="title">Title:</label>
-          <input rows53name="title" id="title" v-model="title" />
+          <input id="title" type="text" v-model="title" />
         </div>
         <div>
-          <label for="contents">Contents</label>
-          <textarea rows="5" name="contents" id="contents" v-model="contents" />
-          <p class="validation-text warning" v-if="!isContentsValid">
-            Contents length must be less than 200
+          <label for="contents">Contents:</label>
+          <textarea id="contents" type="text" rows="5" v-model="contents" />
+          <p
+            v-if="!isContentsValid"
+            class="validation-text warning isContentTooLong"
+          >
+            Contents length must be less than 250
           </p>
         </div>
         <button type="submit" class="btn">Create</button>
       </form>
+      <p class="log">
+        {{ logMessage }}
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import { createPost } from '@/api/index';
+import { createPost } from '@/api/posts';
 
 export default {
   data() {
@@ -43,6 +49,7 @@ export default {
           title: this.title,
           contents: this.contents,
         });
+        this.$router.push('/main');
         console.log(response);
       } catch (error) {
         console.log(error.response.data.message);

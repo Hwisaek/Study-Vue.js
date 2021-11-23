@@ -1,15 +1,15 @@
 <template>
   <div class="form-container">
-    <PostAddForm></PostAddForm>
+    <PostEditForm></PostEditForm>
   </div>
 </template>
 
 <script>
-import PostAddForm from '@/components/posts/PostAddForm.vue';
+import PostEditForm from '@/components/posts/PostEditForm.vue';
 
 export default {
   components: {
-    PostAddForm,
+    PostEditForm,
   },
 };
 </script>
