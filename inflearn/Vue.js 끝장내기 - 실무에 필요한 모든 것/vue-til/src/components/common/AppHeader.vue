@@ -38,8 +38,8 @@ export default {
     logoutUser() {
       this.$store.commit('clearUsername');
       this.$store.commit('clearToken');
-      deleteCookie('til_user');
       deleteCookie('til_auth');
+      deleteCookie('til_user');
       this.$router.push('/login');
     },
   },
